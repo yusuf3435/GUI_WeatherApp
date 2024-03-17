@@ -11,3 +11,99 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.background{
+  width: 430px;
+  height: 932px;
+  flex-shrink: 0;
+  background: linear-gradient(180deg, #0077BE 37.53%, rgba(0, 119, 190, 0.00) 99.98%);
+  border: solid black ;
+}
+
+.info-container{
+  width: 411px;
+  height: 837px;
+  flex-shrink: 0;
+  border-radius: 35px;
+  position: relative;
+  top: 11px;
+  right: 10px;
+  left: 9px;
+  bottom: 84px;
+  background: rgba(1, 120, 191, 0.28);
+}
+
+.info{
+  width: 367px;
+  height: 763px;
+  flex-shrink: 0;
+  border-radius: 35px;
+  position: relative;
+  top: 49px;
+  right: 22px;
+  left: 22px;
+  bottom: 25px;
+  background: rgba(0, 0, 0, 0.83);
+}
+
+.info p{
+  margin: 0;
+  color: #FFF;
+  text-align: center;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: bold;
+  line-height: 22px; /* 157.143% */
+  letter-spacing: 0.374px;
+}
+
+.nav-bar{
+  width: 383px;
+  height: 53px;
+  flex-shrink: 0;
+  border-radius: 57px;
+  position: absolute;
+  top: 858px;
+  right: 23px;
+  left: 24px;
+  bottom: 21px;
+  background: rgba(0, 0, 0, 0.83);
+}
+
+.home{
+  width: 43px;
+  height: 43px;
+  flex-shrink: 0;
+  position: relative;
+  top: 2px;
+  right: 315px;
+  bottom: 8px;
+  left: 25px;
+}
+
+.burger{
+  width: 43px;
+  height: 43px;
+  flex-shrink: 0;
+  position: absolute;
+  top: 5px;
+  right: 171px;
+  bottom: 5px;
+  left: 169px;
+  background-color: white;
+  border-radius: 2rem;
+}
+
+
+.location{
+  width: 19.708px;
+  height: 25.083px;
+  flex-shrink: 0;
+  fill: #FFF;
+  position: absolute;
+  top: 14px;
+  right: 31.3px;
+  bottom: 13.9px;
+  left: 332px;
+} 
