@@ -18,7 +18,6 @@ const WindMap = (props) => {
                     <p>wind map</p>
                     
                     <DaysOfWeek/>
-
                     <div className="wind-info">
                        
                         <img id="wind1" src={windIcon} alt='Wind Icon'/>
