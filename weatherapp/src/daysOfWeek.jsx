@@ -9,7 +9,7 @@ function DaysOfWeek(){
     // Get the current date
     const currentDate = new Date();
 
-    //Get current date class used for rerendering
+    //Get current date class used for rerendering when the current day is mounted to the DOM
     const update = document.getElementsByClassName("dateOfWeek-current");
 
     useEffect(() => {
