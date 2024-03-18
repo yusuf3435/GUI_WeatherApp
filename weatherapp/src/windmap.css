@@ -3,7 +3,6 @@
     letter-spacing: 20px;
 }
 
-
 .day-date {
     display: inline-block; 
     margin-right: 10px;     
@@ -17,7 +16,6 @@
     border-radius: 4rem;
     padding: 0.2rem;
 }
-
 
 #wind1{
     width: 65px;
@@ -37,7 +35,7 @@
     flex-direction: column;
     justify-content: center;
     flex-shrink: 0;
-    font-size: 32px;
+    font-size: 25px;
     position: absolute;
     top: 570px;
     right: 28px;
@@ -56,14 +54,14 @@
     bottom: 73px;
 }
 
-#gust-speed{
+#wind-deg{
     display: flex;
     width: 257px;
     height: 45px;
     flex-direction: column;
     justify-content: center;
     flex-shrink: 0;
-    font-size: 32px;
+    font-size: 25px;
     position: absolute;
     top: 635px;
     right: 28px;
@@ -71,3 +69,23 @@
     bottom: 83px;
 }
 
+.dots-and-arrows-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px; /* Adjust margin as needed */
+    position: absolute;
+    bottom: 25px;
+    right: 23px;
+    left: 24px;
+  }
+  
+  .dots {
+    margin: 0 10px;
+    font-size: 18px;
+    color: #FFF;
+  }
+  
+  .right-arrow{
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+  }
