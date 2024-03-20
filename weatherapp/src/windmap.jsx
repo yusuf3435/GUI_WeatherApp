@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'; 
+import React, { useEffect, useState,  } from 'react'; 
 import axios from 'axios';
 import styles from './windmap.css';
 import NavBar from './nav-bar';
@@ -9,72 +9,28 @@ import windIcon from './Assets/Wind.png';
 
 const API_KEY = "ab9338ff83e02055e23a333e63dacc8f";
 
-function getCurrentLocation(){
-
-    return new Promise((resolve, reject) => {
-
-        // Checks that geolocation is supported by the browser
-        if ("geolocation" in navigator) {
-            // Geolocation is supported
-            navigator.geolocation.getCurrentPosition(
-              position => {
-                const {latitude, longitude} = position.coords;
-                resolve({latitude, longitude});
-              },
-              error => {
-                reject(error);
-              }
-            );
-          } else {
-            // Error handling if browser does not support geolocation
-            reject(new Error("Geolocation is not supported by this browser."));
-          }
-        });
-
-}
-
-// Function to perform reverse geocoding from the Open Weather Map API
-function reverseGeocode(latitude, longitude) {
-    return fetch(`http://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&limit=1&appid=${API_KEY}`)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        // Stores the information in a json file for access later on
-        return response.json();
-      });
-}
-
 const WindMap = () => {
 
-    const [city, setCity] = useState('');
-    const [weatherData, setWeatherData] = useState(null);
+    function lon2tile(lon, zoom) {
+        return Math.floor((lon + 180) / 360 * Math.pow(2, zoom));
+    }
+    
+    function lat2tile(lat, zoom) {
+        return Math.floor((1 - Math.log(Math.tan(lat * Math.PI / 180) + 1 / Math.cos(lat * Math.PI / 180)) / Math.PI) / 2 * Math.pow(2, zoom));
+    }
+    
+    const zoom = 10; // Adjust zoom level as needed
+    const latitude = 51.5074; // Example latitude (London)
+    const longitude = -0.1278; // Example longitude (London)
+    
+    const x = lon2tile(longitude, zoom);
+    const y = lat2tile(latitude, zoom);
+    
+    // console.log('x:', x);
+    // console.log('y:', y);
 
-    useEffect(() => {
-
-        const fetchData = async () => {
-            try {
-
-                const { latitude, longitude } = await getCurrentLocation();
-                const reverseGeocodeData = await reverseGeocode(latitude, longitude);
-                const cityName = reverseGeocodeData[0].name;
-                setCity(cityName);
-                const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${API_KEY}`);
-                setWeatherData(response.data);
-                console.log(response.data); //All weather data is in the console
-                console.log("Latitude:", latitude);
-                console.log("Longitude:", longitude);
-                console.log(reverseGeocodeData);
-            } catch (error) {
-                console.error(error);
-            }
-        };
-
-        fetchData();
-
-    }, []);
-
-   
+    const map = `https://tile.openweathermap.org/map/wind_new/${zoom}/${x}/${y}.png?appid=${API_KEY}`;
+    
     return(
         
         <div className="background">
@@ -95,7 +51,6 @@ const WindMap = () => {
                     </div>
                 </div>
             </div>
-            {/* Call the navigation bar component */}
         </div>
     )
 

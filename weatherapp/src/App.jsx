@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Weather from './Weather';
 import WindMap from './windmap';
 import { Search } from './search';
+import NavBar from './nav-bar';
 import homeIcon from './Assets/home.png';
 import location from './Assets/location.png';
 import burgerIcon from './Assets/burgericon.png'
@@ -18,6 +19,7 @@ const App = () => {
   };
 
   return (
+   
     <div>
       <div className='nav-bar'>
       <button onClick={switchToSearch} className='button' >
@@ -35,6 +37,7 @@ const App = () => {
       {currentScreen === 'search' && <Search />}
       {currentScreen === 'windmap' && <WindMap />}
     </div>
+   
   );
 };
 
