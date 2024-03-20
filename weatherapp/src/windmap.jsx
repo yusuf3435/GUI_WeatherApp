@@ -29,7 +29,6 @@ const WindMap = (props) => {
                 </div>
             </div>
             {/* Call the navigation bar component */}
-            <NavBar/>
         </div>
     )
 

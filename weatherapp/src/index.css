@@ -106,3 +106,176 @@ code {
   bottom: 13.9px;
   left: 332px;
 } 
+
+#SearchBar{
+  width: 369px;
+  height: 38px;
+  flex-shrink: 0;
+  border-radius: 25px;
+  background: rgba(0, 0, 0, 0.83);
+  
+}
+input, select, textarea{
+  color: white;
+}
+
+textarea:focus, input:focus {
+  color: white;
+}
+
+#SearchButton{
+  background-image: url(Assets/search.png);
+  width: 30px;
+  height: 28px;
+  background-size: contain;
+  border: none;
+  background-color:#0077BE ;
+  
+
+}
+
+#SearchEntry{
+  width: 334px;
+  height: 186px;
+  border-radius: 34px;
+  background: #161616;
+  box-shadow: 0px 8px 30px 0px rgba(0, 0, 0, 0.35);
+  border: 1px solid black;
+  padding: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  font-size: small;
+  color: white;
+}
+
+#City{
+  position: relative;
+  top: -20px;
+  left: 20px;
+  text-transform: capitalize;
+  max-height: 1px;
+/* text shadow normal */
+  color: #FFF;
+  font-feature-settings: 'case' on;
+  font-family: "SF Pro Text";
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 22px; /* 129.412% */
+  letter-spacing: 0.092px;
+}
+
+#Temp{
+  position: relative;
+  top: -50px;
+  left:20px;
+  font-family: "SF Pro Text";
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 38.5px; /* 33.594% */
+  letter-spacing: -2.408px;
+  background: linear-gradient(180deg, #FFF 0%, rgba(255, 255, 255, 0.00) 223.47%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#Desc{
+  position: relative;
+  top: -90px;
+  left: 20px;
+  color: #FFF;
+  text-transform: capitalize;
+  font-family: "SF Pro Text";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 21.5px; /* 179.167% */
+  letter-spacing: 0.592px;
+}
+
+#Wind{
+  position: relative;
+  top: -270px;
+  left: 200px;
+  color: #FFF;
+  text-transform: capitalize;
+  font-family: "SF Pro Text";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 21.5px; /* 179.167% */
+  letter-spacing: 0.592px;
+}
+
+#Feels{
+  position: relative;
+  top: -180px;
+  left: 200px;
+  text-transform: capitalize;
+  font-family: "SF Pro Text";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 21.5px; /* 179.167% */
+  letter-spacing: 0.592px;
+}
+
+#Pres{
+  position: relative; 
+  left: 200px;
+  top: -317px;
+  text-transform: capitalize;
+  font-family: "SF Pro Text";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 21.5px; /* 179.167% */
+  letter-spacing: 0.592px;
+}
+
+#Hum{
+  position: relative;
+  left: 200px;
+  top: -320px;
+  text-transform: capitalize;
+  font-family: "SF Pro Text";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 21.5px; /* 179.167% */
+  letter-spacing: 0.592px;
+}
+
+.button{
+  border: none;
+  background: transparent;
+
+}
+
+.search-history-container {
+  position: absolute;
+  top: 131px; /* Adjust as needed */
+  left: 30px; /* Adjust as needed */
+  display: flex;
+  flex-direction: column;
+}
+
+.search-history {
+  
+  position: relative;
+}
+
+.form-container {
+  display: flex;
+  align-items: center; /* Center items vertically */
+  position:absolute;
+  top: 60px;
+  left: 10px;
+}
+
+.input-field {
+  flex: 1; /* Take remaining space */
+}
