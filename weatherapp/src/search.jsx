@@ -28,16 +28,10 @@ const WeatherSearch = () => {
     };
 
     useEffect(() => {
-        // Fetch weather data for the initial search history
-        const fetchDataForHistory = async () => {
-            const updatedHistory = [];
-            for (const search of searchHistory) {
-                const data = await fetchData(search);
-                updatedHistory.push({ city: search, data });
-            }
-            setSearchHistory(updatedHistory);
-        };
-        fetchDataForHistory();
+        const savedHistory = localStorage.getItem('searchHistory');
+        if (savedHistory) {
+            setSearchHistory(JSON.parse(savedHistory));
+        }
     }, []);
 
     const handleInputChange = (e) => {
@@ -50,6 +44,7 @@ const WeatherSearch = () => {
         if (data) {
             const updatedHistory = [{ city, data }, ...searchHistory.slice(0, 2)];
             setSearchHistory(updatedHistory);
+            localStorage.setItem('searchHistory', JSON.stringify(updatedHistory));
             setCity('');
         }
     };
