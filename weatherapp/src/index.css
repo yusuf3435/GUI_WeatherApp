@@ -13,7 +13,7 @@ code {
 
 .background{
   width: 430px;
-  height: 932px;
+  height: 932px; 
   flex-shrink: 0;
   background: linear-gradient(180deg, #0077BE 37.53%, rgba(0, 119, 190, 0.00) 99.98%);
   border: solid black ;
