@@ -1,16 +1,5 @@
 import React, { useEffect, useState } from 'react'; import axios from 'axios';
 import NavBar from './nav-bar';
-export function Background(){
-    return(
-      <div className="background"></div>
-  
-    )
-      
-    
-  }
-
-
-
 
 const WeatherSearch = () => {
     const [city, setCity] = useState('');
@@ -28,16 +17,10 @@ const WeatherSearch = () => {
     };
 
     useEffect(() => {
-        // Fetch weather data for the initial search history
-        const fetchDataForHistory = async () => {
-            const updatedHistory = [];
-            for (const search of searchHistory) {
-                const data = await fetchData(search);
-                updatedHistory.push({ city: search, data });
-            }
-            setSearchHistory(updatedHistory);
-        };
-        fetchDataForHistory();
+        const savedHistory = localStorage.getItem('searchHistory');
+        if (savedHistory) {
+            setSearchHistory(JSON.parse(savedHistory));
+        }
     }, []);
 
     const handleInputChange = (e) => {
@@ -50,44 +33,48 @@ const WeatherSearch = () => {
         if (data) {
             const updatedHistory = [{ city, data }, ...searchHistory.slice(0, 2)];
             setSearchHistory(updatedHistory);
+            localStorage.setItem('searchHistory', JSON.stringify(updatedHistory));
             setCity('');
         }
     };
 
     return (
-        <div>
-            <form onSubmit={handleSubmit} className='form-container'>
-                <input
-                    id='SearchBar'
-                    type="text"
-                    placeholder="Enter city name"
-                    value={city}
-                    onChange={handleInputChange}
-                />
-                <button type="submit" id='SearchButton'></button>
-            </form>
+        <div className='background'>
+            <div className ='info-container'>
+                <form onSubmit={handleSubmit} className='form-container'>
+                    <input
+                        id='SearchBar'
+                        type="text"
+                        placeholder="Enter city name"
+                        value={city}
+                        onChange={handleInputChange}
+                    />
+                    <button type="submit" id='SearchButton'></button>
+                </form>
 
-            {/* Display the last three searches with weather data */}
-            <div className="search-history-container">
-                <h3>Last 3 Searches:</h3>
-                <div className="search-history">
-                {searchHistory.slice(0, 3).map((search, index) => (
-                    <div key={index} id='SearchEntry'>
-                        {search.data ? (
-                            <>
-                                <h4 id='City'>{search.city}</h4>
-                                <p id='Temp'>{search.data.main.temp}°C</p>
-                                <p id='Desc'>{search.data.weather[0].description}</p>
-                                <p id='Feels'>Feels like: {search.data.main.feels_like}°C</p>
-                                <p id='Hum'>Humidity: {search.data.main.humidity}%</p>
-                                <p id='Pres'>Pressure: {search.data.main.pressure}</p>
-                                <p id='Wind'>Wind Speed: {search.data.wind.speed}m/s</p>
-                            </>
-                        ) : (
-                            <p>Error fetching weather data for {search.city}</p>
-                        )}
+                {/* Display the last three searches with weather data */}
+                <div className="search-history-container">
+                    <h3>Last 3 Searches:</h3>
+                    <div className="search-history">
+                    {searchHistory.slice(0, 3).map((search, index) => (
+                        <div key={index} id='SearchEntry'>
+                            {search.data ? (
+                                <>
+                                    {console.log(search)}
+                                    <h4 id='City'>{search.city}, {}</h4>
+                                    <p id='Temp'>{search.data.main.temp}°C</p>
+                                    <p id='Desc'>{search.data.weather[0].description}</p>
+                                    <p id='Feels'>Feels like: {search.data.main.feels_like}°C</p>
+                                    <p id='Hum'>Humidity: {search.data.main.humidity}%</p>
+                                    <p id='Pres'>Pressure: {search.data.main.pressure}</p>
+                                    <p id='Wind'>Wind Speed: {search.data.wind.speed}m/s</p>
+                                </>
+                            ) : (
+                                <p>Error fetching weather data for {search.city}</p>
+                            )}
+                        </div>
+                    ))}
                     </div>
-                ))}
                 </div>
             </div>
         </div>
@@ -99,11 +86,8 @@ export default WeatherSearch;
 
 export function Search(){
     return(
-        <div>
-            <Background/>
             <WeatherSearch/>
             
-        </div>
     )
 }
 

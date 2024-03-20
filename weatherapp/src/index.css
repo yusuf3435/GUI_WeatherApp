@@ -14,9 +14,11 @@ code {
 .background{
   width: 430px;
   height: 932px; 
+  height: 100vh; 
   flex-shrink: 0;
   background: linear-gradient(180deg, #0077BE 37.53%, rgba(0, 119, 190, 0.00) 99.98%);
-  border: solid black ;
+  
+  
 }
 
 .info-container{
@@ -30,7 +32,7 @@ code {
   left: 9px;
   bottom: 84px;
   background: rgba(1, 120, 191, 0.28);
-}
+} 
 
 .info{
   width: 367px;
@@ -257,10 +259,11 @@ textarea:focus, input:focus {
 
 .search-history-container {
   position: absolute;
-  top: 131px; /* Adjust as needed */
+  top: 110px; /* Adjust as needed */
   left: 30px; /* Adjust as needed */
-  display: flex;
+  display: block;
   flex-direction: column;
+
 }
 
 .search-history {
