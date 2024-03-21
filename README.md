@@ -2,9 +2,9 @@
 
 First, please ensure you are in the correct directory. In our case, the filepath should end in 'weatherapp', if this is not the case, please cd into the directory from your terminal. This directory contains the package.json and package-lock.json which is necessary to install the dependencies
 
-## npm install, npm install axios
+## npm install, npm install axios, npm install chart.js, npm install react-chartjs-2
 
-Run the command 'npm install' and then 'npm install axios' in the weatherapp directory to download all required packages. This will create a node_modules folder that stores the dependencies.
+Run the commands 'npm install', 'npm install axios', 'npm install chart.js', 'npm install react-chartjs-2'  in the weatherapp directory to download all required packages. This will create a node_modules folder that stores the dependencies.
 
 ## npm start
 
