@@ -5,32 +5,37 @@ import NavBar from './nav-bar';
 import DaysOfWeek from './daysOfWeek';
 import ArrowDots from './arrowdots';
 import windIcon from './Assets/Wind.png';
+import { useGeolocation } from './geolocation.jsx';
 
 
 const API_KEY = "ab9338ff83e02055e23a333e63dacc8f";
 
 const WindMap = () => {
 
-    function lon2tile(lon, zoom) {
-        return Math.floor((lon + 180) / 360 * Math.pow(2, zoom));
-    }
+    const { latitude, longitude, city} = useGeolocation();
+    const [weatherData, setWeatherData] = useState(null);
     
-    function lat2tile(lat, zoom) {
-        return Math.floor((1 - Math.log(Math.tan(lat * Math.PI / 180) + 1 / Math.cos(lat * Math.PI / 180)) / Math.PI) / 2 * Math.pow(2, zoom));
-    }
-    
-    const zoom = 10; // Adjust zoom level as needed
-    const latitude = 51.5074; // Example latitude (London)
-    const longitude = -0.1278; // Example longitude (London)
-    
-    const x = lon2tile(longitude, zoom);
-    const y = lat2tile(latitude, zoom);
-    
-    // console.log('x:', x);
-    // console.log('y:', y);
 
-    const map = `https://tile.openweathermap.org/map/wind_new/${zoom}/${x}/${y}.png?appid=${API_KEY}`;
-    
+    useEffect(() => {
+
+        const fetchData = async () => {
+            try {
+                const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${API_KEY}`);
+                console.log(response)
+                setWeatherData(response.data);
+                console.log(weatherData);
+                console.log(response.data); //All weather data is in the console
+                console.log("Latitude:", latitude);
+                console.log("Longitude:", longitude);
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        fetchData();
+
+    }, []);
+
     return(
         
         <div className="background">
@@ -42,10 +47,13 @@ const WindMap = () => {
                     {/* <img src={map} alt="Wind Map" /> */}
                     <DaysOfWeek/>
                     <div className="wind-info">
+                        {/* This links to an external website and is NOT our work, the APIs windmap quality is very bad */}
+                        <a href='https://zoom.earth/maps/wind-speed/#view=52.547,0.296,6z/model=icon'>Click here for a detailed wind map</a>
                         <img id="wind1" src={windIcon} alt='Wind Icon'/>
-                        <p id="wind-speed">Wind: {}m/s</p>
+                        {/* Conditionally renders the wind speed, useState is asynchronous so it is not instant but almos */}
+                        <p id="wind-speed">Wind: {weatherData && weatherData.wind.speed}m/s</p>
                         <img id="wind2" src={windIcon} alt='Wind Icon'/>
-                        <p id="wind-deg">Direction: 400{}°</p>
+                        <p id="wind-deg">Direction: {weatherData && weatherData.wind.deg}°</p>
                         {/* Call the arrow and dots component */}
                         <ArrowDots/> 
                     </div>
