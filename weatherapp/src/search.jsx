@@ -61,7 +61,7 @@ const WeatherSearch = () => {
                             {search.data ? (
                                 <>
                                     {console.log(search)}
-                                    <h4 id='City'>{search.city}, {}</h4>
+                                    <h4 id='City'>{search.city}</h4>
                                     <p id='Temp'>{search.data.main.temp}°C</p>
                                     <p id='Desc'>{search.data.weather[0].description}</p>
                                     <p id='Feels'>Feels like: {search.data.main.feels_like}°C</p>
