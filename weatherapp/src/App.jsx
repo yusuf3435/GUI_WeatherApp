@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Weather from './Weather';
-import WindMap from './WeatherChart';
+import WindMap from './windmap';
+import WeatherChart from './WeatherChart';
 import { Search } from './search';
 import homeIcon from './Assets/home.png';
 import location from './Assets/location.png';

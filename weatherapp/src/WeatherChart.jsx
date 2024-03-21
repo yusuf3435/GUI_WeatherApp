@@ -1,78 +1,57 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Line } from 'react-chartjs-2';
-import 'chart.js/auto';
-// Import icons
-import sunnyIcon from './Assets/sunnyIcon.svg';
-import cloudyIcon from './Assets/cloudyIcon.svg';
-import rainIcon from './Assets/rainIcon.svg';
-import snowIcon from './Assets/snowIcon.svg';
+import styles from './windmap.css';
+import NavBar from './nav-bar';
+import DaysOfWeek from './daysOfWeek';
+import ArrowDots from './arrowdots';
+import windIcon from './Assets/Wind.png';
+import WeatherChartComponent from './WeatherChartComponent'; // Importing the WeatherChartComponent
 
 const WeatherChart = () => {
-  const [weatherData, setWeatherData] = useState([]);
-  const [tempData, setTempData] = useState([]);
-  const [times, setTimes] = useState([]);
+  const [weatherDescription, setWeatherDescription] = useState('');
 
-  useEffect(() => {
-    const lat = '44.34'; // Example latitude
-    const lon = '10.99'; // Example longitude
-    const apiKey = '56aa572e659116cd0a98b7298f8a5ade'; // Replace with your API key
-
-    const fetchWeatherData = async () => {
-      try {
-        const response = await axios.get(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`);
-        setWeatherData(response.data.list);
-        const temps = response.data.list.map(item => item.main.temp);
-        const timeLabels = response.data.list.map(item => new Date(item.dt * 1000).toLocaleTimeString());
-        setTempData(temps);
-        setTimes(timeLabels);
-      } catch (error) {
-        console.error("Error fetching weather data:", error);
-      }
-    };
-
-    fetchWeatherData();
-  }, []);
-
-  const chartData = {
-    labels: times,
-    datasets: [
-      {
-        label: 'Temperature (°C)',
-        data: tempData,
-        fill: false,
-        backgroundColor: 'rgb(255, 99, 132)',
-        borderColor: 'rgba(255, 99, 132, 0.2)',
-      },
-    ],
-  };
-
-  const getWeatherIcon = (mainWeather) => {
-    switch (mainWeather.toLowerCase()) {
-      case 'clear':
-        return sunnyIcon;
-      case 'clouds':
-        return cloudyIcon;
-      case 'rain':
-        return rainIcon;
-      case 'snow':
-        return snowIcon;
-      default:
-        return sunnyIcon; // Default icon
+  const fetchWeatherByCoords = async (latitude, longitude) => {
+    const apiKey = '56aa572e659116cd0a98b7298f8a5ad';
+    try {
+      const response = await axios.get(
+        `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${apiKey}`
+      );
+      const description = response.data.weather[0].description;
+      setWeatherDescription(description);
+    } catch (error) {
+      console.error('Error fetching weather data:', error);
     }
   };
 
+  useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        position => {
+          fetchWeatherByCoords(position.coords.latitude, position.coords.longitude);
+        },
+        error => {
+          console.error('Error getting location:', error.message);
+        }
+      );
+    } else {
+      console.error('Geolocation is not supported by this browser.');
+    }
+  }, []);
+
   return (
-    <div className="weather-chart-container">
-      <div className="weather-icons">
-        {weatherData.slice(0, 4).map((item, index) => (
-          <img key={index} src={getWeatherIcon(item.weather[0].main)} alt={item.weather[0].main} className="weather-icon" />
-        ))}
+    <div className="background">
+      <NavBar />
+      <div className="info-container">
+        <div className="info">
+          <p>weather chart</p>
+          <DaysOfWeek />
+          <WeatherChartComponent /> {/* Using the WeatherChartComponent here */}
+          <p className="below-weather-chart-info">{weatherDescription}</p>
+          <ArrowDots />
+        </div>
       </div>
-      <Line data={chartData} />
     </div>
   );
 };
 
 export default WeatherChart;
- 
