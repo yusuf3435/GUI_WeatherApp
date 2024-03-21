@@ -1,0 +1,154 @@
+* {
+ box-sizing: border-box;
+ padding: 0;
+ margin: 0;
+}
+
+body {
+ color: white;
+}
+
+.Weekly {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  justify-content: center;
+}
+
+.Weekly1 {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+}
+
+.Weekly_Container {
+  box-shadow: 0 0 5px black;
+  position: absolute;
+  background: black;
+  padding: 20px;
+  width: 60%;
+  height: 200px;
+  top: 41px;
+  left: 8px;
+  gap: 0px;
+  border-radius: 35px 0px 0px 0px;
+  opacity: 0px;
+}
+
+.Weekly_Container1 {
+   box-shadow: 0 0 5px black;
+   position: absolute;
+   background: black;
+   padding: 70px;
+   width: 60%;
+   height: 200px;
+   top: 41px;
+   left: 8px;
+   gap: 0px;
+   border-radius: 35px 0px 0px 0px;
+   opacity: 0px;
+}
+
+.Weekly_Container2 {
+   box-shadow: 0 0 5px black;
+   position: absolute;
+   background: black;
+   padding: 70px;
+   width: 60%;
+   height: 200px;
+   top: 41px;
+   left: 15px;
+   gap: 0px;
+   border-radius: 35px 0px 0px 0px;
+   opacity: 0px;
+}
+
+.Weekly_weather {
+   margin: auto;
+   color: green;
+}
+
+.Weekly_text {
+  float: right
+}
+
+.Weekly_single {
+  display: flex;
+  justify-content: space-around;
+}
+
+.Weekly_single1 {
+  display: flex;
+  justify-content: space-around;
+}
+
+#box1 {
+  background: black;
+  border-radius: 25px;
+  padding: 20px;
+  width: 200px;
+  height: 90px;
+}
+
+#box2 {
+  background: black;
+  border-radius: 25px;
+  padding: 20px;
+  width: 200px;
+  height: 130px;
+}
+
+#box3 {
+  background: black;
+  border-radius: 25px;
+  padding: 20px;
+  width: 200px;
+  height: 90px;
+}
+
+#box4 {
+  background: black;
+  border-radius: 25px;
+  padding: 20px;
+  width: 200px;
+  height: 90px;
+}
+
+#box5 {
+  background: black;
+  border-radius: 25px;
+  padding: 20px;
+  width: 200px;
+  height: 90px;
+}
+
+#box6 {
+  background: black;
+  border-radius: 25px;
+  padding: 20px;
+  width: 200px;
+  height: 90px;
+}
+
+#icon1 {
+  float: left
+}
+
+[label GUI_WeatherApp/weatherapp/src/weekly.css] .tab-list {
+  border-bottom: 1px solid #ccc;
+  padding-left: 0;
+}
+
+.tab-list-item {
+  display: inline-block;
+  list-style: none;
+  margin-bottom: -1px;
+  padding: 0.5rem 0.75rem;
+}
+
+.tab-list-active {
+  background-color: white;
+  border: solid #ccc;
+  border-width: 1px 1px 0 1px;
+}
+
