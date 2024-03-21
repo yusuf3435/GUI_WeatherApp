@@ -17,6 +17,29 @@
     padding: 0.2rem;
 }
 
+.link-container{
+    position: absolute;
+    top: 45%; /* Position at the vertical center */
+    left: 50%; /* Position at the horizontal center */
+    transform: translate(-50%, -50%); /* Center the container */
+    display: flex;
+    flex-direction: column; /* Align items vertically */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    font-size: 2rem;
+    border: solid white;
+    padding: 1rem;
+    border-radius: 2rem;
+    
+}
+
+.link-container a{
+    color:#FFF;
+    text-decoration: none;
+
+    
+}
+
 #wind1{
     width: 65px;
     height: 65px;

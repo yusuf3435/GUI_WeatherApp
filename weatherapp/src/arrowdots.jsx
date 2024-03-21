@@ -19,11 +19,11 @@ function ArrowDots(){
     // }; 
     return(
         <div className="dots-and-arrows-container">
-            <img className="arrow left-arrow" src={arrow} onClick/>
+            <img className="arrow left-arrow" src={arrow}/>
             <img className="dots" src={circle} />
             <img className="dots" src={circle} />
             <img className="dots" src={circle} />
-            <img className="arrow right-arrow" src={arrow} onClick/>
+            <img className="arrow right-arrow" src={arrow} />
         </div>
 
  

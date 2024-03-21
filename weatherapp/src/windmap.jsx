@@ -12,7 +12,7 @@ const API_KEY = "ab9338ff83e02055e23a333e63dacc8f";
 
 const WindMap = () => {
 
-    const { latitude, longitude, city} = useGeolocation();
+    const {latitude, longitude, city} = useGeolocation();
     const [weatherData, setWeatherData] = useState(null);
     
 
@@ -48,7 +48,9 @@ const WindMap = () => {
                     <DaysOfWeek/>
                     <div className="wind-info">
                         {/* This links to an external website and is NOT our work, the APIs windmap quality is very bad */}
-                        <a href='https://zoom.earth/maps/wind-speed/#view=52.547,0.296,6z/model=icon'>Click here for a detailed wind map</a>
+                        <div className='link-container'>
+                            <a href={`https://zoom.earth/maps/wind-speed/#view=${latitude},${longitude},11z/model=icon`}>Click here for a detailed wind map</a>
+                        </div>
                         <img id="wind1" src={windIcon} alt='Wind Icon'/>
                         {/* Conditionally renders the wind speed, useState is asynchronous so it is not instant but almos */}
                         <p id="wind-speed">Wind: {weatherData && weatherData.wind.speed}m/s</p>
