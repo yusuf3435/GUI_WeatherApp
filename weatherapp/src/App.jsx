@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Weather from './Weather';
 import WindMap from './windmap';
-import WeatherChart from './WeatherChart';
 import { Search } from './search';
 import NavBar from './nav-bar';
 import homeIcon from './Assets/home.png';
@@ -15,8 +14,8 @@ const App = () => {
     setCurrentScreen('search');
   };
 
-  const switchToWeatherChart = () => {
-    setCurrentScreen('WeatherChart');
+  const switchToWindMap = () => {
+    setCurrentScreen('windmap');
   };
 
   return (
@@ -26,7 +25,7 @@ const App = () => {
       <button onClick={switchToSearch} className='button' >
       <img className="location" src={location} alt="location pin"/>
       </button>
-      <button onClick={switchToWeatherChart}   className='button'>
+      <button onClick={switchToWindMap}   className='button'>
       <img className="burger" src={burgerIcon} alt="burger icon"/>
       </button>
       <button className='button'> 
@@ -36,7 +35,7 @@ const App = () => {
 
 
       {currentScreen === 'search' && <Search />}
-      {currentScreen === 'weatherChart' && <WeatherChart />}
+      {currentScreen === 'windmap' && <WindMap />}
     </div>
    
   );
