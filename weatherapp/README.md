@@ -6,6 +6,6 @@ First, please ensure you are in the correct directory. In our case, the filepath
 
 Run the command 'npm install' and then 'npm install axios' in the weatherapp directory to download all required packages. This will create a node_modules folder that stores the dependencies.
 
-### npm start
+## npm start
 
 Run the command 'npm start' to start the localhost and run the app.
