@@ -1,16 +1,14 @@
-import homeIcon from './Assets/home.png';
+import home from './Assets/home.png';
 import location from './Assets/location.png';
-import burgerIcon from './Assets/burgericon.png'
+import burgericon from './Assets/burgericon.png'
 
 function NavBar(){
 
 
-    return( 
+    return(
         <div className="nav-bar">
-
-            
-            <img className="home" src={homeIcon} alt="home icon"/>
-            <img className="burger" src={burgerIcon} alt="burger icon"/>
+            <img className="home" src={home} alt="home icon"/>
+            <img className="burger" src={burgericon} alt="burger icon"/>
             <img className="location" src={location} alt="location pin"/>
         </div>
     )
