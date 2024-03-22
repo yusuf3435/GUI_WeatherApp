@@ -30,9 +30,8 @@ function Weekly() {
   const [visibility, setVisibility] = useState(0);
   const [seaLevelPressure, setSeaLevelPressure] = useState(0);
   const [humidity, setHumidity] = useState(0);
-  const [query, setQuery] = useState({ q: "berlin" });
   const [units, setUnits] = useState("metric");
-  const [weathers, setWeathers] = useState(null);
+
 
   const savePositionToState = (position) => {
     setLatitude(position.coords.latitude);
@@ -45,7 +44,7 @@ function Weekly() {
         savePositionToState
       );
       const res = await axios.get(
-        `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=60d505bb48f9c02e8d1f29a621cd125f&units=metric`
+        `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=60d505bb48f9c02e8d1f29a621cd125f&units=${units}`
       );
       setTemperature(res.data.main.temp);
       setCityName(res.data.name);
@@ -64,12 +63,10 @@ function Weekly() {
     fetchWeather();
   }, [latitude, longitude]);
 
-  const weekly_weather = () => {
-     const tabData = [
-        { label: "Hourly"},
-        { label: "Weekly"},
-     ];
-  };
+
+
+
+
 
   return (
   <div className="background">
@@ -79,28 +76,8 @@ function Weekly() {
         <img id="icon1" src={Suncloudmidrain} alt='Suncloudmidrain icon' width="40%" />
         <div className="Weekly_text">
            <h2>{temperature}ºC</h2>
-           <h4>{weathers}</h4>
+           <h4>{weather}</h4>
         </div>
-        </p>
-      </div>
-      <div className="longbox">
-        <p id="box2">
-           <div className="Weekly_weather">
-             <Tabs>
-               <div label="Hourly">
-               </div>
-               <div label="Weekly">
-                   <div id="weatherContainer">
-                      <div id="iconsContainer">
-                         <div class="icons">
-                            <p class="weather" id="day1"></p>
-                            <div class="image"><img src={Suncloudmidrain} class=" imgClass" id="img1" alt="">
-                         </div>
-                      </div>
-                   </div>
-               </div>
-             </Tabs>
-           </div>
         </p>
       </div>
     </div>
