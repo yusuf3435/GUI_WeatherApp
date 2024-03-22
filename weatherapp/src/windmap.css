@@ -1,15 +1,21 @@
+/* Styles the days*/
 .days{
     text-align: center;
     letter-spacing: 20px;
 }
 
+/* Styles the date*/
 .day-date {
     display: inline-block; 
     margin-right: 10px;     
 }
+
+/* Styles the date of the week*/
 .dateOfWeek{
     padding: 0.2rem;
 }
+
+/* Styles the current day*/
 .dateOfWeek-current {
     color: black !important;
     background-color: white;
@@ -33,6 +39,7 @@
     
 }
 
+/* Styles the container*/
 .link-container a{
     color:#FFF;
     text-decoration: none;
@@ -40,6 +47,7 @@
     
 }
 
+/* Styles the button*/
 #wind1{
     width: 65px;
     height: 65px;
@@ -51,6 +59,7 @@
     bottom: 138px;
 }
 
+/* Styles the Wind speed info*/
 #wind-speed{
     display: flex;
     width: 257px;
@@ -66,6 +75,7 @@
     bottom: 148px;
 }
 
+/* Styles the Wind info*/
 #wind2{
     width: 65px;
     height: 65px;
@@ -77,6 +87,7 @@
     bottom: 73px;
 }
 
+/* Styles the Wind Degrees info*/
 #wind-deg{
     display: flex;
     width: 257px;
@@ -92,15 +103,16 @@
     bottom: 83px;
 }
 
+/* Styles the Arrows container*/
 .dots-and-arrows-container {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 20px; /* Adjust margin as needed */
     position: absolute;
-    bottom: 25px;
+    top: 750px;
     right: 23px;
-    left: 24px;
+    left: -1500px;
   }
   
   .dots {

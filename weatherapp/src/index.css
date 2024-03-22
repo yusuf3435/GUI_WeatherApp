@@ -10,17 +10,18 @@ code {
   font-family: "Inter", sans-serif;
 }
 
-
-.background{
+/* Styles the background */
+.background{ 
   width: 430px;
-  height: 932px; 
-  height: 100vh; 
+  height: 932px;
   flex-shrink: 0;
   background: linear-gradient(180deg, #0077BE 37.53%, rgba(0, 119, 190, 0.00) 99.98%);
+  border: solid black ;
   
   
 }
 
+/* Styles container for info on charts */
 .info-container{
   width: 411px;
   height: 837px;
@@ -34,6 +35,7 @@ code {
   background: rgba(1, 120, 191, 0.28);
 } 
 
+/* Styles the info on chart */
 .info{
   width: 367px;
   height: 763px;
@@ -47,6 +49,7 @@ code {
   background: rgba(0, 0, 0, 0.83);
 }
 
+/* Styles the info on chart */
 .info p{
   margin: 0;
   color: #FFF;
@@ -59,6 +62,7 @@ code {
   letter-spacing: 0.374px;
 }
 
+/* Styles the navigation bar below */
 .nav-bar{
   width: 383px;
   height: 53px;
@@ -72,6 +76,7 @@ code {
   background: rgba(0, 0, 0, 0.83);
 }
 
+/* Styles the home image */
 .home{
   width: 43px;
   height: 43px;
@@ -80,9 +85,10 @@ code {
   top: 2px;
   right: 315px;
   bottom: 8px;
-  left: 25px;
+  left: 0px;
 }
 
+/* Styles the burger icon image*/
 .burger{
   width: 43px;
   height: 43px;
@@ -96,7 +102,7 @@ code {
   border-radius: 2rem;
 }
 
-
+/* Styles the location icon image */
 .location{
   width: 19.708px;
   height: 25.083px;
@@ -109,6 +115,7 @@ code {
   left: 332px;
 } 
 
+/* Styles the search bar to input text */
 #SearchBar{
   width: 369px;
   height: 38px;
@@ -117,14 +124,18 @@ code {
   background: rgba(0, 0, 0, 0.83);
   
 }
+
+/* Temporary colour for text when searched*/
 input, select, textarea{
   color: white;
 }
 
+/* Styles the imput area */
 textarea:focus, input:focus {
   color: white;
 }
 
+/* Styles the search button*/
 #SearchButton{
   background-image: url(Assets/search.png);
   width: 30px;
@@ -136,6 +147,7 @@ textarea:focus, input:focus {
 
 }
 
+/* Styles the entries in the Search function*/
 #SearchEntry{
   width: 334px;
   height: 186px;
@@ -151,6 +163,7 @@ textarea:focus, input:focus {
   color: white;
 }
 
+/* Styles the City data in a search*/
 #City{
   position: relative;
   top: -20px;
@@ -168,6 +181,7 @@ textarea:focus, input:focus {
   letter-spacing: 0.092px;
 }
 
+/* Styles the Temperature data in a search*/
 #Temp{
   position: relative;
   top: -50px;
@@ -184,6 +198,7 @@ textarea:focus, input:focus {
   -webkit-text-fill-color: transparent;
 }
 
+/* Styles the Weather description data in a search*/
 #Desc{
   position: relative;
   top: -90px;
@@ -198,6 +213,7 @@ textarea:focus, input:focus {
   letter-spacing: 0.592px;
 }
 
+/* Styles the Wind data in a search*/
 #Wind{
   position: relative;
   top: -270px;
@@ -212,6 +228,7 @@ textarea:focus, input:focus {
   letter-spacing: 0.592px;
 }
 
+/* Styles the Temperature feels data in a search*/
 #Feels{
   position: relative;
   top: -180px;
@@ -225,6 +242,7 @@ textarea:focus, input:focus {
   letter-spacing: 0.592px;
 }
 
+/* Styles the Pressure data in a search*/
 #Pres{
   position: relative; 
   left: 200px;
@@ -238,6 +256,7 @@ textarea:focus, input:focus {
   letter-spacing: 0.592px;
 }
 
+/* Styles the Humidity data in a search*/
 #Hum{
   position: relative;
   left: 200px;
@@ -251,12 +270,14 @@ textarea:focus, input:focus {
   letter-spacing: 0.592px;
 }
 
+/* Styles the button*/
 .button{
   border: none;
   background: transparent;
 
 }
 
+/* Styles the Search history container*/
 .search-history-container {
   position: absolute;
   top: 110px; /* Adjust as needed */
@@ -266,11 +287,13 @@ textarea:focus, input:focus {
 
 }
 
+/* Styles the search history*/
 .search-history {
   
   position: relative;
 }
 
+/* Styles the entries in a vertical flex*/
 .form-container {
   display: flex;
   align-items: center; /* Center items vertically */
@@ -279,6 +302,25 @@ textarea:focus, input:focus {
   left: 10px;
 }
 
+/* Styles the input field*/
 .input-field {
   flex: 1; /* Take remaining space */
+}
+
+/* Styles the Arrows flex*/
+.dots-and-arrows-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px; /* Adjust margin as needed */
+  position: absolute;
+  top: 750px;
+  right: 23px;
+  left: -1500px;
+}
+
+
+/* Styles the Arrow to be flipped and look like a right arrow*/
+.right-arrow{ 
+  transform: matrix(-1, 0, 0, 1, 0, 0);
 }

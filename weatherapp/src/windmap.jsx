@@ -1,7 +1,7 @@
 import React, { useEffect, useState,  } from 'react'; 
 import axios from 'axios';
 import styles from './windmap.css';
-import NavBar from './nav-bar';
+
 import DaysOfWeek from './daysOfWeek';
 import ArrowDots from './arrowdots';
 import windIcon from './Assets/Wind.png';
@@ -57,7 +57,7 @@ const WindMap = () => {
                         <img id="wind2" src={windIcon} alt='Wind Icon'/>
                         <p id="wind-deg">Direction: {weatherData && weatherData.wind.deg}°</p>
                         {/* Call the arrow and dots component */}
-                        <ArrowDots/> 
+
                     </div>
                 </div>
             </div>

@@ -1,46 +1,42 @@
 import React, { useState } from 'react';
 import Weather from './Weather';
 import WindMap from './windmap';
+import WeatherChart from './WeatherChart';
 import { Search } from './search';
-import NavBar from './nav-bar';
 import homeIcon from './Assets/home.png';
 import location from './Assets/location.png';
-import burgerIcon from './Assets/burgericon.png'
+import burgerIcon from './Assets/burgericon.png';
+import { WindVisuals } from './Visuals';
 
 const App = () => {
-  const [currentScreen, setCurrentScreen] = useState('search');
+  const [currentScreen, setCurrentScreen] = useState('search'); {/* Functions to set the screens */}
 
   const switchToSearch = () => {
     setCurrentScreen('search');
   };
 
-  const switchToWindMap = () => {
-    setCurrentScreen('windmap');
+  const switchToWindVisuals = () => { 
+    setCurrentScreen('windvisuals'); 
   };
 
   return (
-   
     <div>
       <div className='nav-bar'>
-      <button onClick={switchToSearch} className='button' >
-      <img className="location" src={location} alt="location pin"/>
-      </button>
-      <button onClick={switchToWindMap}   className='button'>
-      <img className="burger" src={burgerIcon} alt="burger icon"/>
-      </button>
-      <button className='button'> 
-        <img className="home" src={homeIcon} alt="home icon"/>
-      </button>
+        <button onClick={switchToSearch} className='button'> {/* Search button */}
+          <img className="location" src={location} alt="location pin"/>
+        </button>
+        <button onClick={switchToWindVisuals} className='button'> {/* Changed onClick handler */}
+          <img className="burger" src={burgerIcon} alt="burger icon"/>
+        </button>
+        <button className='button'> 
+          <img className="home" src={homeIcon} alt="home icon"/> {/* Home Button */}
+        </button>
       </div>
 
-
       {currentScreen === 'search' && <Search />}
-      {currentScreen === 'windmap' && <WindMap />}
+      {currentScreen === 'windvisuals' && <WindVisuals />} {/* Loads the screen depending on the variable stored */}
     </div>
-   
   );
 };
 
 export default App;
-
-
