@@ -3,10 +3,10 @@ import NavBar from './nav-bar';
 export function Background(){
     return(
       <div className="background"></div>
-  
+
     )
-      
-    
+
+
   }
 
 
@@ -97,8 +97,7 @@ export function Search(){
         <div>
             <Background/>
             <WeatherSearch/>
-            
+
         </div>
     )
 }
-
